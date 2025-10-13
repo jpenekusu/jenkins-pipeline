@@ -52,26 +52,6 @@ pipeline {
 //               sh 'mvn clean sonar:sonar -Dsonar.login=$Login -Dsonar.password=$Password'
 //            }
 //         }
-//      }
-      
-      
-	stage('Code Coverage') {
-        steps {
-            sh 'mvn clean cobertura:cobertura'
-        }
-        
-        post {
-	        always {
-	            step([$class: 'CoberturaPublisher', autoUpdateHealth: true, autoUpdateStability: true, coberturaReportFile: '**/target/site/cobertura/*.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 2, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: true])
-	        }
-	    }
-    }
-    
-
-      
-
-
-
-
+//      } 
    }
 }
