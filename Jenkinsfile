@@ -9,17 +9,10 @@ pipeline {
    stages {
       stage('Clone') {
          steps {
-            checkout([$class: 'GitSCM',
-                branches: [[name: '*/master' ]],
-                extensions: scm.extensions,
-                userRemoteConfigs: [[
-                    url: 'https://github.com/jpenekusu/jenkins-pipeline.git',
-                    credentialsId: '86ebefd1-279b-46f1-be3a-ca3094b4750d'
-                ]]
-            ])
-
-            //List all directories
-            sh "ls -lart ./*"
+			script {
+				echo "📦 Récupération du code source..."
+				checkout scm
+			}			 
          }
       }
 	  stage('Compile'){
