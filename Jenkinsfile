@@ -17,20 +17,13 @@ pipeline {
       }
 	  stage('Compile'){
          steps{
-            withMaven(maven:'mon_maven_auto')
-            {
-              sh "mvn compile"
-            }
+         	sh "mvn compile"
          }
       }
       stage('Test'){
          steps{
-            withMaven(maven:'mon_maven_auto')
-            {
-              sh "mvn test"
-            }
+        	sh "mvn test"
          }
-         
       }
       
       stage('Build'){
